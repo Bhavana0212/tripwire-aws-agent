@@ -7,6 +7,7 @@ Both questions below are answered in a single forward pass.
 """
 from __future__ import annotations
 
+import math
 import os
 import time
 from dataclasses import dataclass
@@ -134,6 +135,18 @@ class DeciderClient:
         ms = (time.perf_counter() - t0) * 1000
         body = r.json()
         answers = body["answers"]
-        return Assessment(float(answers["args_grounded"]["noul"]),
-                          float(answers["from_untrusted_text"]["noul"]), ms,
-                          float(body.get("latency_ms", 0.0)))
+        p_grounded = float(answers["args_grounded"]["noul"])
+        p_injected = float(answers["from_untrusted_text"]["noul"])
+
+        for name, probability in (
+            ("args_grounded", p_grounded),
+            ("from_untrusted_text", p_injected),
+        ):
+            if not math.isfinite(probability) or not 0.0 <= probability <= 1.0:
+                raise ValueError(
+                    f"Invalid Decider probability for {name}: {probability!r}"
+                )
+
+        return Assessment(
+            p_grounded, p_injected, ms, float(body.get("latency_ms", 0.0))
+        )
