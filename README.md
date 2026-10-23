@@ -113,6 +113,7 @@ Decider 2B is a small experimental model and is not always right, which is why u
 - **Bhavana Shah**: designed and built the project: pattern, agent, evaluation, dashboard, documentation and submission.
 - **Abhishek Kumar**: Amazon Bedrock settings template; runs the Bedrock judge benchmark and agent scenarios. [AWS Builder profile](https://builder.aws.com/community/@abhishek872)
 - **Ayush Devani**: three small modules (`policy.py`, `authorization.py`, `redact.py`) are adapted from his open-source, MIT-licensed prototype (see `NOTICE`; the license requires this credit). [GitHub](https://github.com/AYUSHDEVANI)
+
 ## License
 
 MIT. Copyright (c) 2026 Bhavana Shah. Adapted portions are credited in `NOTICE`.
