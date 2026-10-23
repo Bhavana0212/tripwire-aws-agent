@@ -108,6 +108,10 @@ tests/              unit tests (also run in CI)
 
 Decider 2B is a small experimental model and is not always right, which is why uncertain cases go to the user or an LLM judge. Results come from our 120-case set and show relative behaviour on it, not a production guarantee. The HTTP client follows the `strands-decider` server API (`POST /v1/systemone`, `noul` questions); check it against the version you install.
 
+## Demo Video
+
+Watch the Tripwire demo: https://youtu.be/GJb7j89bxWE
+
 ## Team and credits
 
 - **Bhavana Shah**: designed and built the project: pattern, agent, evaluation, dashboard, documentation and submission.
