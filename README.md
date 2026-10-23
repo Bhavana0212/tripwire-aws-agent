@@ -112,6 +112,8 @@ Decider 2B is a small experimental model and is not always right, which is why u
 
 Watch the Tripwire demo: https://youtu.be/GJb7j89bxWE
 
+https://youtu.be/zEBIpx7HMQU
+
 ## Team and credits
 
 - **Bhavana Shah**: designed and built the project: pattern, agent, evaluation, dashboard, documentation and submission.
