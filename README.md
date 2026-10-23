@@ -7,6 +7,11 @@ Built for the Agent Experience Hackathon: Strands Decider. Decision pattern: **g
 
 ![Tripwire architecture](docs/architecture.png)
 
+## In plain English
+
+AI agents can start servers, delete files and read text from the internet, and that text can hide instructions meant to trick them. Tripwire is a careful supervisor in front of every action. It checks two things: did the person really ask for this exact thing, and did the instruction come from the person or from text the agent just read? Read the full [plain-English explanation](docs/HOW_IT_WORKS.md), or try it yourself for free with `python -m agent.try_it` (needs only the small local model, no cloud account).
+
+
 Before an agent runs a tool, Tripwire asks Decider 2B two typed yes/no questions in a single forward pass:
 
 1. `args_grounded`: is every argument value explicitly stated by the user?
@@ -47,6 +52,7 @@ VIDEO_URL=https://youtu.be/XXXX bash scripts/run_all.sh
 Individual commands:
 
 ```bash
+python -m agent.try_it                       # try your own examples, free, with plain-English answers
 python -m agent.demo                         # four lanes against the real model
 python -m agent.main --scenario injection    # Strands agent on Bedrock reads a poisoned log
 python -m agent.main                         # interactive
@@ -91,7 +97,7 @@ agent = Agent(tools=[...], interventions=[guard])
 
 ```
 tripwire_pattern/   reusable pattern: typed questions, cascade, handler, judge, policy, tokens, redaction, log
-agent/              demo agent, sandbox AWS tools, demo script
+agent/              demo agent, sandbox AWS tools, demo script, free try-it tool
 eval/               120 labeled cases, benchmark, article generator
 dashboard/          Streamlit decision dashboard
 scripts/            setup checker and one-command real run
